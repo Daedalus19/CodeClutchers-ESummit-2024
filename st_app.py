@@ -1,8 +1,33 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama.llms import OllamaLLM
 import streamlit as st
+import modelCreation
+import os
+import transcribe
+import summarizer
+import modelCreation
 
 st.title("VidVibe")
+
+vid_link = st.text_input("Enter a YouTube video link:", key="vid_link")
+
+if not vid_link:
+    st.warning("Please enter a YouTube video link to proceed.")
+    st.stop()
+
+
+transcribe.yt_download(vid=vid_link)
+transcript = transcribe.transcribe()
+transcribe.write_file(text=transcript)
+# summary = summarizer.summary()
+
+with open("assets\\transcribe.txt") as file:
+    context = file.read()
+
+modelCreation.create_chat_model(context=context,vid_link=vid_link)
+
+os.system('ollama create vidvibe -f ./Vidvibe')
+
 
 template = """Question: {question}
 
