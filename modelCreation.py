@@ -4,7 +4,7 @@ Used for creating the custom model file
 
 import os
 
-def create_chat_model(context:str):
+def create_chat_model(context:str, vid_link:str):
     details=f'''
 FROM llama3.2
 
@@ -12,14 +12,12 @@ PARAMETER temperature 0.8
 
 SYSTEM """
 Answer all questions, based ONLY on the given context. If the answer is not present, say so.
-This is a transcribed youtube video : . 
+This is a transcribed youtube video : {vid_link}. 
 context : {context}
 """'''
 
     with open("Vidvibe","w") as file:
         file.write(details)
-
-
 
 
 if __name__ == "__main__":

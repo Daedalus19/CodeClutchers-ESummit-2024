@@ -7,4 +7,11 @@ transformers
 torch
 chromadb
 ollama
-langchain_ollama
+streamlit
+
+requests
+langchain 
+langchain-core
+langchain-ollama
+langchain_community
+langchain_text_splitters

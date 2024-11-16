@@ -16,6 +16,8 @@ def summary():
     with open("assets\\summary.txt","w") as fileObject :
         fileObject.write(result)
 
+    return result
+
 if __name__ == "__main__":
     summary()
     
