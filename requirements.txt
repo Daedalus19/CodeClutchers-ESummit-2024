@@ -1,4 +1,10 @@
+# need to download ollama
+
 # pytube  # has issues with HTTP call
 pytubefix
 pydub
 transformers
+torch
+chromadb
+ollama
+langchain_ollama
