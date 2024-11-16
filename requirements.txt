@@ -1,0 +1,6 @@
+# was required to install Microsoft C++ Build tools : https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+# pytube  # has issues with HTTP call
+pytubefix
+pydub
+transformers
