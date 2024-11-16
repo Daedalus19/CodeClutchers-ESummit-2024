@@ -19,7 +19,6 @@ if not vid_link:
 transcribe.yt_download(vid=vid_link)
 transcript = transcribe.transcribe()
 transcribe.write_file(text=transcript)
-# summary = summarizer.summary()
 
 with open("assets\\transcribe.txt") as file:
     context = file.read()
