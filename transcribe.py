@@ -1,7 +1,6 @@
 from pytubefix import YouTube
-import warnings
+import warnings # Add ignore warnings
 from pydub import AudioSegment
-import io
 from transformers import pipeline
 
 def write_file(text: str, terminalPrint:bool = False):
@@ -32,6 +31,8 @@ def transcribe():
     result = transcriber("assets\\test.wav", return_timestamps=True)
 
     return (result['text'])
+
+
 
 def main():
     vid = "https://www.youtube.com/watch?v=AmihOKWM62I"
