@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 assets/
+templates/
 .Python
 build/
 dist/
@@ -30,3 +31,4 @@ venv.bak/
 temp/
 temp1.py
 temp2.py
+app.py

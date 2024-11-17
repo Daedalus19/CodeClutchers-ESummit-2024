@@ -4,8 +4,6 @@ import streamlit as st
 import modelCreation
 import os
 import transcribe
-import summarizer
-import modelCreation
 
 st.title("VidVibe")
 
@@ -15,26 +13,28 @@ if not vid_link:
     st.warning("Please enter a YouTube video link to proceed.")
     st.stop()
 
+if "is_transcribed" not in st.session_state:
+    st.session_state.is_transcribed = False
 
-transcribe.yt_download(vid=vid_link)
-transcript = transcribe.transcribe()
-transcribe.write_file(text=transcript)
+if not st.session_state.is_transcribed:
+    transcribe.yt_download(vid=vid_link)
+    transcript = transcribe.transcribe()
+    transcribe.write_file(text=transcript)
 
-with open("assets\\transcribe.txt") as file:
-    context = file.read()
+    with open("assets\\transcribe.txt") as file:
+        context = file.read()
 
-modelCreation.create_chat_model(context=context,vid_link=vid_link)
+    modelCreation.create_chat_model(context=context, vid_link=vid_link)
+    os.system('ollama create vidvibe -f ./Vidvibe')
 
-os.system('ollama create vidvibe -f ./Vidvibe')
-
+    st.session_state.is_transcribed = True
 
 template = """Question: {question}
 
 Answer: """
 
-prompt = ChatPromptTemplate.from_template(template)
-
 model = OllamaLLM(model="vidvibe")
+prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 if "history" not in st.session_state:
@@ -47,5 +47,5 @@ if question:
     st.session_state.history.append({"question": question, "answer": answer})
 
 for i, entry in enumerate(st.session_state.history):
-    st.write(f"**You :** {entry['question']}")
-    st.write(f"**VidVibe :** {entry['answer']}")
+    st.write(f"*You :* {entry['question']}")
+    st.write(f"*VidVibe :* {entry['answer']}")
