@@ -3,7 +3,6 @@
 # 🚀 YouTube Video Summarizer & Interactive Chat Session  
 
 [![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-orange)](https://streamlit.io/)  
-[![License](https://img.shields.io/github/license/your-repo/your-project)](LICENSE)  
 [![Hugging Face](https://img.shields.io/badge/Powered%20by-Hugging%20Face-yellow)](https://huggingface.co/)  
 
 Transform long YouTube videos into concise summaries and engage in context-aware interactive chat sessions—all running locally!  
@@ -61,7 +60,7 @@ This project revolutionizes content consumption by:
 1. **Clone the repository**  
    ```bash  
    git clone https://github.com/Daedalus19/CodeClutchers-ESummit-2024.git 
-   cd your-repo``` 
+   cd CodeClutchers-ESummit-2024``` 
 
 2. **Install dependencies**
 
@@ -73,7 +72,7 @@ This project revolutionizes content consumption by:
 
     ```bash
     Copy code
-    streamlit run app.py```  
+    streamlit run st_app.py```  
 
 4. **Usage**
 
@@ -132,11 +131,6 @@ This project revolutionizes content consumption by:
 
     - Add support for additional formats (PDFs, podcasts).
     - Expand into regional markets with language localization.
-
----
-
-## 📄 License
-This project is licensed under the MIT License.
 
 ---
 
